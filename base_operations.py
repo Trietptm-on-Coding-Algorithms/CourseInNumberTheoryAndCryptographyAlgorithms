@@ -10,6 +10,13 @@ def num_to_string(num):
         return str(num)
 
 
+def string_to_num(numstr):
+    if numstr.isalpha():
+        return int(alphabet.index(numstr)) + 10
+    else:
+        return int(numstr)
+
+
 def convert_from_base10(num, base, all_letters=False):
     new = []
     while num >= base:
@@ -21,3 +28,17 @@ def convert_from_base10(num, base, all_letters=False):
         return ''.join([alphabet[i] for i in new])
     else:
         return ''.join([num_to_string(i) for i in new])
+
+
+def convert_to_base10(numstr, base, all_letters=False):
+    number = 0
+    chars = list(numstr)
+    length = len(chars)
+    for char in chars:
+        length -= 1
+        if all_letters:
+            num = alphabet.index(char)
+        else:
+            num = string_to_num(char)
+        number += num * base**length
+    return number
