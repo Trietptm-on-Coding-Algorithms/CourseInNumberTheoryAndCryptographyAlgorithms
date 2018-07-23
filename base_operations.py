@@ -1,3 +1,5 @@
+import math
+
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
             'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
             'w', 'x', 'y', 'z']
@@ -42,3 +44,7 @@ def convert_to_base10(numstr, base, all_letters=False):
             num = string_to_num(char)
         number += num * base**length
     return number
+
+
+def number_of_digits(num, base):
+    return int(math.log(num, base) + 1)
